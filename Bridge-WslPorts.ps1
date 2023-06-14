@@ -1,5 +1,6 @@
 $ports = @(80, 443, 10000, 3000, 5000);
 
+#<ifconfig> or <ip addr show> or <hostname -I> depending on your distro
 $wslAddress = bash.exe -c "ifconfig eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 
 if ($wslAddress -match '^(\d{1,3}\.){3}\d{1,3}$') {
