@@ -21,7 +21,7 @@ $t = New-ScheduledTaskTrigger -AtLogon
 $s = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
 $p = New-ScheduledTaskPrincipal -GroupId "BUILTIN\Administrators" -RunLevel Highest
 Register-ScheduledTask -TaskName "WSL2PortsBridge" -Action $a -Trigger $t -Settings $s -Principal $p
-```powershell
+```
 If you need to change the port list later on, feel free to change `$ports` and rerun the script using the command above. The task will also use the updated script.
 
 The script's output window will be hidden when running. If you want logs, add to the top of the script `Start-Transcript -Path "C:\Logs\Bridge-WslPorts.log" -Append`. This will record all logs to the file passed in.
